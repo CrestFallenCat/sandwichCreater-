@@ -1,0 +1,124 @@
+/* * {
+  outline: 1px solid black;
+  box-sizing: border-box;
+} */
+
+body {
+  height: 130vh;
+
+  background: url("sandwichOutline3.png"),
+    linear-gradient(
+      160deg,
+      rgb(255, 204, 0) 0%,
+      rgb(236, 147, 13) 51%,
+      rgb(187, 108, 5) 100%
+    );
+
+  background-repeat: round;
+  background-size: 100px;
+  font-family: "Finger Paint", cursive;
+
+  color: white;
+  margin: 0;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+.topNav::before {
+  content: "";
+  border-bottom: 2px solid rgb(255, 106, 0);
+  position: absolute;
+  left: 0;
+  top: 147px;
+  width: 100%;
+}
+.titles {
+  margin: 1rem;
+}
+#about,
+#contacts {
+  text-decoration: none;
+  font-size: 170%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 1%;
+
+  color: rgb(255, 251, 0);
+}
+
+#about:hover,
+#contacts:hover {
+  color: rgb(255, 15, 15);
+}
+@media (max-width: 550px) {
+  h1,
+  h3 {
+    display: none;
+  }
+}
+
+#small {
+  visibility: hidden;
+}
+@media (max-width: 1200px) {
+  #click4 {
+    display: none;
+  }
+  #small {
+    visibility: visible;
+
+    color: black;
+    font-size: 1.5em;
+    font-weight: bold;
+  }
+}
+
+#logo:hover {
+  transform: rotate(360deg);
+}
+
+#smallLogo {
+  max-height: 120px;
+  margin-right: 1rem;
+}
+.container {
+  position: relative;
+  height: 110vh;
+}
+
+#logo {
+  background-color: transparent;
+  cursor: url(pics/egg-cursor.png), auto;
+
+  border-radius: 60%;
+
+  transition: all 15s ease;
+  z-index: 2;
+  position: absolute;
+  top: 10%;
+  left: 28%;
+
+  max-width: 45%;
+}
+
+#click4 {
+  position: absolute;
+  top: 5%;
+  left: 58%;
+
+  max-width: 20%;
+}
+
+#arrow {
+  top: 20%;
+  right: 97%;
+  max-width: 30%;
+  position: absolute;
+  transform-origin: bottom right 60px;
+  transform: rotate(2deg) scaleX(-1);
+}

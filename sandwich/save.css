@@ -1,0 +1,46 @@
+body {
+  background-color: black;
+}
+.main-container {
+  position: absolute;
+  min-height: 2000px;
+  flex-grow: 1;
+  border: 1px solid white;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 30px;
+  align-items: start;
+  justify-items: center;
+  margin: 10px;
+}
+
+.sandwich-container {
+  position: relative;
+  max-height: 800px;
+  flex-grow: 1;
+  height: 100%;
+  width: 350px;
+  border: 1px solid white;
+  overflow: hidden;
+}
+.sandwich-container img {
+  padding-top: 20px;
+  position: absolute;
+  max-width: 100%;
+}
+
+.main-container img[src="./pics/bug.PNG"] {
+  width: 150px;
+  position: absolute;
+  left: 40%;
+  margin: -30px;
+  padding: 10px;
+}
+
+.main-container img[src="./pics/egg.PNG"],
+.main-container img[src="./pics/pickle.PNG"],
+.main-container img[src="./pics/tomate.PNG"] {
+  width: 250px;
+  position: absolute;
+  left: 15%;
+}

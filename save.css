@@ -1,0 +1,195 @@
+body {
+  height: 700vh;
+
+  background: url("outline50opacity.png"),
+    linear-gradient(
+      160deg,
+      rgb(255, 204, 0) 0%,
+      rgb(236, 147, 13) 51%,
+      rgb(187, 108, 5) 100%
+    );
+
+  background-repeat: round;
+  background-size: 550px;
+  font-family: "Finger Paint", cursive;
+
+  color: white;
+  margin: 0;
+}
+
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+
+  padding: 20px;
+}
+
+.topNav::before {
+  content: "";
+  border-bottom: 2px solid rgb(255, 106, 0);
+  position: absolute;
+  left: 0;
+  top: 159px;
+  width: 100%;
+}
+.titles {
+  margin: 1rem;
+}
+#smallLogo {
+  max-height: 120px;
+  margin-right: 1rem;
+}
+#about,
+#contacts,
+#make-sandwich {
+  text-decoration: none;
+  font-size: 170%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 1%;
+
+  color: rgb(255, 251, 0);
+}
+
+#about:hover,
+#contacts:hover,
+#make-sandwich:hover {
+  color: rgb(255, 15, 15);
+}
+.main-container {
+  position: absolute;
+  min-height: 2000px;
+  width: auto;
+  flex-grow: 1;
+  /* border: 1px solid white; */
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 200px;
+  align-items: start;
+  justify-items: center;
+  margin: 2%;
+  left: 48%;
+  transform: translateX(-50%);
+}
+
+.sandwich-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+
+  height: 850px;
+  width: 350px;
+  /* border: 1px solid white; */
+  /* overflow: hidden; */
+  background-color: rgb(0, 0, 0);
+}
+.sandwich-container img:not(.reset-rating) {
+  position: relative;
+  max-width: 100%;
+  max-height: 100%;
+  margin-bottom: -130px;
+  margin-top: 65px;
+  bottom: 5px;
+}
+
+.main-container img[src="./pics/bug.PNG"] {
+  max-width: 150px;
+  position: relative;
+  max-height: 100%;
+  left: 40%;
+  bottom: 30px;
+
+  margin-bottom: -150px;
+  margin-left: -70px;
+  padding: 10px;
+  margin-top: 65px;
+}
+
+.main-container img[src="./pics/egg.PNG"],
+.main-container img[src="./pics/pickle.PNG"],
+.main-container img[src="./pics/tomate.PNG"] {
+  width: 250px;
+  max-height: 100%;
+  position: relative;
+  left: 15%;
+  margin-bottom: -130px;
+  margin-top: 65px;
+  bottom: 5px;
+}
+
+.sandwich-name {
+  font-family: "Rock Salt", cursive;
+  color: white;
+  /* border: 4px solid white; */
+  text-align: center;
+  font-size: 2.5em;
+}
+
+.rating-text {
+  position: absolute;
+  white-space: nowrap;
+
+  color: rgb(0, 0, 0);
+  margin-top: 10px;
+}
+
+/* flex brings the sandwiches together as a margin was causing a bug */
+.sandwich-rating {
+  position: absolute; /* Add position absolute to rating element */
+  bottom: -50px; /* Position the element just outside the bottom of the container */
+  /* Position the element at the left side of the container */
+  display: flex;
+  height: 50px;
+  z-index: 10;
+}
+.sandwich-rating.disabled {
+  pointer-events: none;
+}
+.sandwich-rating img {
+  opacity: 0.2;
+  cursor: pointer;
+  padding: 3px;
+  height: 100%; /* Add height to make images fit the rating element */
+}
+
+.sandwich-rating:hover img {
+  opacity: 1;
+}
+
+.sandwich-rating img:hover {
+  opacity: 1;
+}
+.sandwich-rating img:hover ~ img {
+  opacity: 0.2;
+}
+
+.sandwich-rating img.active {
+  opacity: 1;
+}
+
+.reset-rating {
+  position: absolute;
+  width: 25px;
+  right: 0;
+  bottom: -110px;
+  z-index: 20;
+}
+
+.rating-score {
+  position: absolute;
+  z-index: 15;
+  color: black;
+  font-family: "Alkatra", cursive;
+  font-size: 1.2em;
+  right: 50%;
+  bottom: -170px;
+  letter-spacing: 2px;
+}
+
+#sort-by {
+  color: black;
+}

@@ -1,0 +1,231 @@
+body {
+  height: 160vh;
+
+  background: url("outline50opacity.png"),
+    linear-gradient(
+      160deg,
+      rgb(255, 204, 0) 0%,
+      rgb(236, 147, 13) 51%,
+      rgb(187, 108, 5) 100%
+    );
+
+  background-repeat: round;
+  background-size: 100px;
+  font-family: "Finger Paint", cursive;
+
+  color: white;
+  margin: 0;
+}
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+}
+.titles {
+  margin: 1rem;
+}
+#smallLogo {
+  max-height: 120px;
+  margin-right: 1rem;
+}
+#about,
+#contacts,
+#saved-page {
+  text-decoration: none;
+  font-size: 170%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 1%;
+
+  color: rgb(255, 251, 0);
+}
+
+#about:hover,
+#contacts:hover,
+#saved-page:hover {
+  color: rgb(255, 15, 15);
+}
+.top-container {
+  height: 100vh;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 1rem;
+  margin-right: 60%;
+  margin-left: 2%;
+}
+
+.food-button {
+  display: block;
+  border: 3px solid black;
+  font-family: "Finger Paint", cursive;
+  cursor: pointer;
+
+  height: 6vh;
+  width: 15vh;
+
+  margin: 20px 10px;
+  text-transform: uppercase;
+
+  background: linear-gradient(
+    0deg,
+    rgba(255, 175, 87, 1) 0%,
+    rgba(255, 225, 156, 1) 100%
+  );
+
+  font-size: 1.5em;
+  letter-spacing: 1.5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.food-button:hover {
+  box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px,
+    rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+}
+
+.ingredients {
+  margin: 10px 10px;
+
+  letter-spacing: 1.5px;
+  font-size: 4em;
+  color: black;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 90%;
+  width: 650px;
+  left: 25%;
+
+  visibility: visible;
+}
+
+.slidingImage {
+  transition: top 1.5s; /* animate the top property with ease transition */
+
+  max-width: 100%; /* Sets the maximum width of the image to 100% of the container */
+  max-height: 100%; /* Sets the maximum height of the image to 100% of the container */
+  visibility: hidden;
+}
+
+.bug {
+  max-width: 250px;
+}
+.tomato,
+.pickle,
+.egg {
+  max-width: 450px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.right-buttons {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+}
+
+.save-reset-undo {
+  margin: 20px;
+}
+.slidingimage: #egg, #pickle, #tomato {
+  max-width: 70%;
+}
+
+#bug {
+  max-width: 40%;
+}
+.dialog {
+  font-family: "Nunito", sans-serif;
+  letter-spacing: 2px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 999;
+}
+.dialog-content {
+  position: relative;
+}
+
+#closeDialog {
+  position: absolute;
+  top: -10px;
+  right: -20px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+#closeDialog:hover,
+#saveOk:hover {
+  color: red;
+}
+
+h3 {
+  margin-top: 30px;
+  text-align: center;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 15px;
+}
+#saveOk {
+  width: 40px;
+  height: 20px;
+  background-color: transparent;
+  border: 2px solid white;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.checkbox-container {
+  text-align: center;
+  margin-top: 15px;
+}
+
+#disableSavePromp {
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+}
+
+.save-reset-undo {
+}
+
+#done {
+}
+#reset {
+}
+#undo {
+}
