@@ -33,6 +33,14 @@ if (savedSandwiches) {
         nameContainer.innerText = sandwichNames[index];
         sandwichContainer.appendChild(nameContainer);
 
+        const formToBuy = document.createElement("div");
+        formToBuy.className = "form-div";
+        sandwichContainer.appendChild(formToBuy);
+        const buyButton = document.createElement("button");
+        buyButton.className = "buy-button";
+        buyButton.innerText = "Buy";
+        formToBuy.appendChild(buyButton);
+
         // Check if there are any images in the sandwich
         sandwich.images.reverse();
         const bunUnderIndex = sandwich.images.indexOf("./pics/bunUnder.PNG");
@@ -115,6 +123,7 @@ if (savedSandwiches) {
           // this retrieves the rating details from session storage, if there is currently no data, rating details is set to an empty array
           let ratingDetails =
             JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
+          console.log(ratingDetails);
 
           // this will append the rating score to the sandwich container so it is visible in the dom
           sandwichContainer.appendChild(ratingScore);
@@ -155,6 +164,7 @@ if (savedSandwiches) {
               // Get the existing rating details from sessionStorage
               let ratingDetails =
                 JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
+              console.log(ratingDetails);
 
               // Find the index of the sandwich in the rating details array
               const sandwichIndex = Array.from(
@@ -176,6 +186,7 @@ if (savedSandwiches) {
                 "ratingDetails",
                 JSON.stringify(ratingDetails)
               );
+              location.reload();
             });
           });
         });
@@ -186,7 +197,6 @@ if (savedSandwiches) {
 
 // copy of original order of sandwich containers
 const originalOrder = [...sandwichContainerArray];
-console.log(originalOrder);
 
 // Add an event listener to the drop-down menu
 sortSelect.addEventListener("change", () => {
@@ -241,3 +251,5 @@ sortSelect.addEventListener("change", () => {
     mainContainerSort.appendChild(container);
   });
 });
+// ensure 'oldest first is always the first option selected on reload of page
+sortSelect.value = "Oldest first";
