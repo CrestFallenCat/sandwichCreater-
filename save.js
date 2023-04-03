@@ -24,8 +24,33 @@ if (savedSandwiches) {
         sandwichContainer.className = "sandwich-container";
 
         sandwichContainerArray.push(sandwichContainer);
-
+        sandwich.images.reverse();
         mainContainer.appendChild(sandwichContainer);
+
+        // add a cross to the corner of the sandwich container so that it can be removed
+        const containerCross = document.createElement("p");
+        containerCross.className = "container-cross";
+        containerCross.innerText = "X";
+        sandwichContainer.appendChild(containerCross);
+
+        const crossIcon = document.querySelectorAll(".container-cross");
+        // Loop through each cross icon and add an event listener to it
+        crossIcon.forEach((crossIcon) => {
+          crossIcon.addEventListener("click", () => {
+            // Get the container element that contains the cross icon
+            const container = crossIcon.parentElement;
+
+            // Remove the container element from the DOM
+            container.remove();
+
+            const containers = document.querySelectorAll(".sandwich-container");
+            const containerIndex = Array.prototype.indexOf.call(
+              containers,
+              container
+            );
+            sessionStorage.removeItem(`container-${containerIndex}`);
+          });
+        });
 
         // Create a new div element to hold the sandwich name
         const nameContainer = document.createElement("div");
@@ -40,6 +65,55 @@ if (savedSandwiches) {
         buyButton.className = "buy-button";
         buyButton.innerText = "Buy";
         formToBuy.appendChild(buyButton);
+
+        // click function to create the form element which will appear for the user when 'buy' is clicked
+        buyButton.addEventListener("click", function () {
+          let form = formToBuy.querySelector(".buy-form");
+          if (form) {
+            formToBuy.removeChild(form);
+          } else {
+            form = document.createElement("form");
+            form.setAttribute("class", "buy-form");
+            formToBuy.appendChild(form);
+          }
+
+          // create text input fields
+          const nameInput = document.createElement("input");
+          nameInput.type = "text";
+          nameInput.name = "name";
+          nameInput.placeholder = "Full Name";
+          form.appendChild(nameInput);
+
+          const addressInput = document.createElement("input");
+          addressInput.type = "text";
+          addressInput.name = "address";
+          addressInput.placeholder = "Address";
+          form.appendChild(addressInput);
+
+          const submitButton = document.createElement("input");
+          submitButton.type = "submit";
+          submitButton.value = "submit";
+          form.appendChild(submitButton);
+          // animate the boughtImage element to slide down into the sandwich container when the form is submitted
+
+          form.addEventListener("submit", function (event) {
+            event.preventDefault();
+            // image that appears after submit is clicked
+            const boughtImage = document.createElement("img");
+            boughtImage.src = "pics/submit.jpeg";
+            boughtImage.id = "creature";
+            sandwichContainer.appendChild(boughtImage);
+
+            setTimeout(() => {
+              document.getElementById("creature").style.animation =
+                "fadeOut 1s ease-out";
+            }, 3000);
+            // remove the image element from the DOM after the animation is complete
+            setTimeout(() => {
+              sandwichContainer.removeChild(boughtImage);
+            }, 4000);
+          });
+        });
 
         // Check if there are any images in the sandwich
         sandwich.images.reverse();
