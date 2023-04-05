@@ -8,20 +8,28 @@ const sortSelect = document.getElementById("sort-options");
 let sandwichContainerArray = [];
 
 let ratingDetails = JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
-console.log(ratingDetails);
+
+let containerCount = -1;
+let containerId;
 
 if (savedSandwiches) {
   // Get a reference to the container element
   const mainContainer = document.querySelector(".main-container");
 
   // If saved sandwiches are found in storage
+
   if (savedSandwiches) {
+    // Get a reference to the container element
+    const mainContainer = document.querySelector(".main-container");
+
+    // Loop through each saved sandwich
     Object.values(savedSandwiches).forEach((sandwich, index) => {
       // only create a new div if there are elements in the sandwich.images array
       if (sandwich.images && sandwich.images.length > 0) {
         // Create a new div element to hold the sandwich images
         const sandwichContainer = document.createElement("div");
         sandwichContainer.className = "sandwich-container";
+        sandwichContainer.id = sandwich.id;
 
         sandwichContainerArray.push(sandwichContainer);
         sandwich.images.reverse();
@@ -43,15 +51,39 @@ if (savedSandwiches) {
             // Remove the container element from the DOM
             container.remove();
 
-            const containers = document.querySelectorAll(".sandwich-container");
-            const containerIndex = Array.prototype.indexOf.call(
-              containers,
-              container
+            // Remove the corresponding sandwich object from savedSandwiches and sandwichNames arrays
+            const sandwichId = container.id;
+            delete savedSandwiches[sandwichId];
+            const sandwichIndex = sandwichNames.indexOf(sandwichId);
+            if (sandwichIndex > -1) {
+              sandwichNames.splice(sandwichIndex, 1);
+            }
+
+            if (sessionStorage.getItem("ratingDetails")) {
+              const ratingDetails =
+                JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
+              if (Array.isArray(ratingDetails)) {
+                ratingDetails.splice(sandwichIndex, 1);
+                sessionStorage.setItem(
+                  "ratingDetails",
+                  JSON.stringify(ratingDetails)
+                );
+              }
+            }
+
+            // Update the savedSandwiches object in local storage
+            sessionStorage.setItem(
+              "savedImages",
+              JSON.stringify(savedSandwiches)
             );
-            sessionStorage.removeItem(`container-${containerIndex}`);
+            sessionStorage.setItem(
+              "allTheNames",
+              JSON.stringify(sandwichNames)
+            );
           });
         });
 
+        sandwich.images.reverse();
         // Create a new div element to hold the sandwich name
         const nameContainer = document.createElement("div");
         nameContainer.className = "sandwich-name";
@@ -197,7 +229,6 @@ if (savedSandwiches) {
           // this retrieves the rating details from session storage, if there is currently no data, rating details is set to an empty array
           let ratingDetails =
             JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
-          console.log(ratingDetails);
 
           // this will append the rating score to the sandwich container so it is visible in the dom
           sandwichContainer.appendChild(ratingScore);
