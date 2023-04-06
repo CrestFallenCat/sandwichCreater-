@@ -29,10 +29,10 @@ if (savedSandwiches) {
         // Create a new div element to hold the sandwich images
         const sandwichContainer = document.createElement("div");
         sandwichContainer.className = "sandwich-container";
-        sandwichContainer.id = sandwich.id;
 
-        sandwichContainerArray.push(sandwichContainer);
+        sandwichContainer.id = sandwich.id;
         sandwich.images.reverse();
+        sandwichContainerArray.push(sandwichContainer);
         mainContainer.appendChild(sandwichContainer);
 
         // add a cross to the corner of the sandwich container so that it can be removed
@@ -42,28 +42,48 @@ if (savedSandwiches) {
         sandwichContainer.appendChild(containerCross);
 
         const crossIcon = document.querySelectorAll(".container-cross");
-        // Loop through each cross icon and add an event listener to it
+
+        // adding event listener to each cross icon
         crossIcon.forEach((crossIcon) => {
           crossIcon.addEventListener("click", () => {
-            // Get the container element that contains the cross icon
+            // parentElement that contains the cross is the container it is associated with
             const container = crossIcon.parentElement;
 
-            // Remove the container element from the DOM
-            container.remove();
+            const containerIndex = container.parentNode
+              ? Array.from(container.parentNode.children).indexOf(container)
+              : -1;
 
-            // Remove the corresponding sandwich object from savedSandwiches and sandwichNames arrays
+            console.log(container);
+            console.log(container.parentNode);
+            // Use the container index to remove the corresponding name from the sandwichNames array
+            sandwichNames.splice(containerIndex, 1);
+
+            // Store the updated sandwich names array in session storage with a unique key
+            sessionStorage.setItem(
+              "allTheNames",
+              JSON.stringify(sandwichNames)
+            );
+
+            //  obtaining the unique ID associated with each container
             const sandwichId = container.id;
+
+            // delete keyword used to remove a property from  the object in the saved sandwiches array at the
+            // position of the containers index
             delete savedSandwiches[sandwichId];
-            const sandwichIndex = sandwichNames.indexOf(sandwichId);
-            if (sandwichIndex > -1) {
-              sandwichNames.splice(sandwichIndex, 1);
-            }
+            // Update the items in storage after removal of an entire sandwich container
+            sessionStorage.setItem(
+              "savedImages",
+              JSON.stringify(savedSandwiches)
+            );
 
             if (sessionStorage.getItem("ratingDetails")) {
               const ratingDetails =
                 JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
               if (Array.isArray(ratingDetails)) {
-                ratingDetails.splice(sandwichIndex, 1);
+                // obtain the unique ID associated with each container
+                const sandwichId = container.id;
+                // use the ID to remove the corresponding rating info from the ratingDetails array
+                delete ratingDetails[sandwichId];
                 sessionStorage.setItem(
                   "ratingDetails",
                   JSON.stringify(ratingDetails)
@@ -71,19 +91,11 @@ if (savedSandwiches) {
               }
             }
 
-            // Update the savedSandwiches object in local storage
-            sessionStorage.setItem(
-              "savedImages",
-              JSON.stringify(savedSandwiches)
-            );
-            sessionStorage.setItem(
-              "allTheNames",
-              JSON.stringify(sandwichNames)
-            );
+            // This removes the container element from the DOM only
+            container.remove();
           });
         });
 
-        sandwich.images.reverse();
         // Create a new div element to hold the sandwich name
         const nameContainer = document.createElement("div");
         nameContainer.className = "sandwich-name";

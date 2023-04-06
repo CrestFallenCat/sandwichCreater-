@@ -290,13 +290,13 @@ foodButtons.forEach((button) => {
 });
 
 let allTheNames = [];
-// might not need
+
 let lastNameEntered = [];
 
 function sandwichName() {
   let nameOfSandwich = document.getElementById("sandwichName").value;
   lastNameEntered.push(nameOfSandwich);
-  console.log("name of last sandwich entered: " + lastNameEntered);
+
   nameTheSandwich.style.visibility = "hidden";
   document.getElementById("sandwichName").value = "";
 
@@ -310,7 +310,6 @@ function sandwichName() {
   // Retrieve the updated sandwich names array from session storage and log it to the console
   let sessionSandwichNames = JSON.parse(sessionStorage.getItem("allTheNames"));
   // console.log(sessionSandwichNames);
-  console.log("all the array items " + allTheNames);
 
   // reset all the food items in the container once the sandwich has been saved and named
   reset(container);
