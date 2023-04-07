@@ -31,7 +31,7 @@ if (savedSandwiches) {
         sandwichContainer.className = "sandwich-container";
 
         sandwichContainer.id = sandwich.id;
-        sandwich.images.reverse();
+        // sandwich.images.reverse();
         sandwichContainerArray.push(sandwichContainer);
         mainContainer.appendChild(sandwichContainer);
 
@@ -48,6 +48,7 @@ if (savedSandwiches) {
           crossIcon.addEventListener("click", () => {
             // parentElement that contains the cross is the container it is associated with
             const container = crossIcon.parentElement;
+            console.log(container);
 
             const containerIndex = container.parentNode
               ? Array.from(container.parentNode.children).indexOf(container)
@@ -69,27 +70,35 @@ if (savedSandwiches) {
 
             // delete keyword used to remove a property from  the object in the saved sandwiches array at the
             // position of the containers index
+            if (sessionStorage.getItem("ratingDetails")) {
+              const ratingDetails =
+                JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
+              if (Array.isArray(ratingDetails)) {
+                // get the name of the sandwich associated with this container
+                const sandwichName =
+                  container.querySelector(".sandwich-name").textContent;
+                console.log(sandwichName);
+                // find the index of the sandwich name in the sandwichNames array
+                const sandwichIndex = sandwichContainerArray.indexOf(container);
+
+                console.log(sandwichIndex);
+                // use the sandwichIndex to remove the corresponding rating info from the ratingDetails array
+                if (sandwichIndex > -1) {
+                  ratingDetails.splice(sandwichIndex, 1);
+                  sessionStorage.setItem(
+                    "ratingDetails",
+                    JSON.stringify(ratingDetails)
+                  );
+                }
+              }
+            }
+
             delete savedSandwiches[sandwichId];
             // Update the items in storage after removal of an entire sandwich container
             sessionStorage.setItem(
               "savedImages",
               JSON.stringify(savedSandwiches)
             );
-
-            if (sessionStorage.getItem("ratingDetails")) {
-              const ratingDetails =
-                JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
-              if (Array.isArray(ratingDetails)) {
-                // obtain the unique ID associated with each container
-                const sandwichId = container.id;
-                // use the ID to remove the corresponding rating info from the ratingDetails array
-                delete ratingDetails[sandwichId];
-                sessionStorage.setItem(
-                  "ratingDetails",
-                  JSON.stringify(ratingDetails)
-                );
-              }
-            }
 
             // This removes the container element from the DOM only
             container.remove();
