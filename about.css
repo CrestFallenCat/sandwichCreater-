@@ -1,0 +1,61 @@
+body {
+  min-height: 200vh;
+
+  background: url("outline50opacity.png"),
+    linear-gradient(
+      160deg,
+      rgb(255, 204, 0) 0%,
+      rgb(236, 147, 13) 51%,
+      rgb(187, 108, 5) 100%
+    );
+
+  background-repeat: round;
+  background-size: 100px;
+  font-family: "Finger Paint", cursive;
+
+  color: white;
+  margin: 0;
+}
+.topNav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: black;
+  color: white;
+  overflow: hidden;
+
+  padding: 20px;
+}
+
+.topNav::before {
+  content: "";
+  border-bottom: 2px solid rgb(255, 106, 0);
+  position: absolute;
+  left: 0;
+  top: 159px;
+  width: 100%;
+}
+.titles {
+  margin: 1rem;
+}
+#smallLogo {
+  max-height: 120px;
+  margin-right: 1rem;
+}
+#about,
+#contacts,
+#make-sandwich {
+  text-decoration: none;
+  font-size: 170%;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-top: 1%;
+
+  color: rgb(255, 251, 0);
+}
+
+#about:hover,
+#contacts:hover,
+#make-sandwich:hover {
+  color: rgb(255, 15, 15);
+}

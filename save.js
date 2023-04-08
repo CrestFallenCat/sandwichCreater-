@@ -9,9 +9,6 @@ let sandwichContainerArray = [];
 
 let ratingDetails = JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
 
-let containerCount = -1;
-let containerId;
-
 if (savedSandwiches) {
   // Get a reference to the container element
   const mainContainer = document.querySelector(".main-container");
@@ -30,80 +27,11 @@ if (savedSandwiches) {
         const sandwichContainer = document.createElement("div");
         sandwichContainer.className = "sandwich-container";
 
-        sandwichContainer.id = sandwich.id;
+        // Increment the container count to get a unique ID for this container
+
         // sandwich.images.reverse();
         sandwichContainerArray.push(sandwichContainer);
         mainContainer.appendChild(sandwichContainer);
-
-        // add a cross to the corner of the sandwich container so that it can be removed
-        const containerCross = document.createElement("p");
-        containerCross.className = "container-cross";
-        containerCross.innerText = "X";
-        sandwichContainer.appendChild(containerCross);
-
-        const crossIcon = document.querySelectorAll(".container-cross");
-
-        // adding event listener to each cross icon
-        crossIcon.forEach((crossIcon) => {
-          crossIcon.addEventListener("click", () => {
-            // parentElement that contains the cross is the container it is associated with
-            const container = crossIcon.parentElement;
-            console.log(container);
-
-            const containerIndex = container.parentNode
-              ? Array.from(container.parentNode.children).indexOf(container)
-              : -1;
-
-            console.log(container);
-            console.log(container.parentNode);
-            // Use the container index to remove the corresponding name from the sandwichNames array
-            sandwichNames.splice(containerIndex, 1);
-
-            // Store the updated sandwich names array in session storage with a unique key
-            sessionStorage.setItem(
-              "allTheNames",
-              JSON.stringify(sandwichNames)
-            );
-
-            //  obtaining the unique ID associated with each container
-            const sandwichId = container.id;
-
-            // delete keyword used to remove a property from  the object in the saved sandwiches array at the
-            // position of the containers index
-            if (sessionStorage.getItem("ratingDetails")) {
-              const ratingDetails =
-                JSON.parse(sessionStorage.getItem("ratingDetails")) || [];
-              if (Array.isArray(ratingDetails)) {
-                // get the name of the sandwich associated with this container
-                const sandwichName =
-                  container.querySelector(".sandwich-name").textContent;
-                console.log(sandwichName);
-                // find the index of the sandwich name in the sandwichNames array
-                const sandwichIndex = sandwichContainerArray.indexOf(container);
-
-                console.log(sandwichIndex);
-                // use the sandwichIndex to remove the corresponding rating info from the ratingDetails array
-                if (sandwichIndex > -1) {
-                  ratingDetails.splice(sandwichIndex, 1);
-                  sessionStorage.setItem(
-                    "ratingDetails",
-                    JSON.stringify(ratingDetails)
-                  );
-                }
-              }
-            }
-
-            delete savedSandwiches[sandwichId];
-            // Update the items in storage after removal of an entire sandwich container
-            sessionStorage.setItem(
-              "savedImages",
-              JSON.stringify(savedSandwiches)
-            );
-
-            // This removes the container element from the DOM only
-            container.remove();
-          });
-        });
 
         // Create a new div element to hold the sandwich name
         const nameContainer = document.createElement("div");
@@ -134,23 +62,30 @@ if (savedSandwiches) {
           const nameInput = document.createElement("input");
           nameInput.type = "text";
           nameInput.name = "name";
-          nameInput.placeholder = "Full Name";
+          nameInput.placeholder = "Name";
+          nameInput.classList = "name";
           form.appendChild(nameInput);
 
           const addressInput = document.createElement("input");
           addressInput.type = "text";
           addressInput.name = "address";
           addressInput.placeholder = "Address";
+          addressInput.classList = "address";
           form.appendChild(addressInput);
 
           const submitButton = document.createElement("input");
           submitButton.type = "submit";
-          submitButton.value = "submit";
+          submitButton.value = "Submit";
+          submitButton.classList = "submit";
           form.appendChild(submitButton);
           // animate the boughtImage element to slide down into the sandwich container when the form is submitted
 
           form.addEventListener("submit", function (event) {
             event.preventDefault();
+            // reset the input values to an empty string
+            nameInput.value = "";
+            addressInput.value = "";
+
             // image that appears after submit is clicked
             const boughtImage = document.createElement("img");
             boughtImage.src = "pics/submit.jpeg";
@@ -370,7 +305,9 @@ sortSelect.addEventListener("change", () => {
     sortedContainers = sandwichContainers;
   }
   originalOrder.forEach((container) => {
-    mainContainerSort.removeChild(container);
+    if (mainContainerSort.contains(container)) {
+      mainContainerSort.removeChild(container);
+    }
   });
 
   sortedContainers.forEach((container) => {
