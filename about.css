@@ -36,14 +36,14 @@ body {
   width: 100%;
 }
 .titles {
-  margin: 1rem;
+  margin-left: 1rem;
+  font-size: 23px;
 }
 #smallLogo {
   max-height: 120px;
   margin-right: 1rem;
 }
-#about,
-#contacts,
+#saved,
 #make-sandwich {
   text-decoration: none;
   font-size: 170%;
@@ -54,8 +54,17 @@ body {
   color: rgb(255, 251, 0);
 }
 
-#about:hover,
-#contacts:hover,
+#saved:hover,
 #make-sandwich:hover {
   color: rgb(255, 15, 15);
+}
+.just-creature {
+  position: absolute;
+  max-width: 80px;
+  left: 400px;
+  top: 55px;
+}
+.navLinks {
+  position: absolute;
+  right: 10%;
 }

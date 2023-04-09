@@ -29,12 +29,18 @@ body {
   border-bottom: 2px solid rgb(255, 106, 0);
   position: absolute;
   left: 0;
-  top: 147px;
+  top: 162px;
   width: 100%;
 }
 .titles {
   margin: 1rem;
+  font-size: 18px;
 }
+.navLinks {
+  position: absolute;
+  right: 10%;
+}
+
 #about,
 #contacts {
   text-decoration: none;

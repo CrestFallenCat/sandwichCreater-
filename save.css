@@ -36,8 +36,15 @@ body {
   top: 159px;
   width: 100%;
 }
+.just-creature {
+  position: absolute;
+  max-width: 80px;
+  left: 500px;
+  top: 57px;
+}
 .titles {
   margin: 1rem;
+  font-size: 19px;
 }
 #smallLogo {
   max-height: 120px;
@@ -60,6 +67,11 @@ body {
 #make-sandwich:hover {
   color: rgb(255, 15, 15);
 }
+.navLinks {
+  position: absolute;
+  right: 10%;
+}
+
 .main-container {
   position: absolute;
   min-height: 2000px;

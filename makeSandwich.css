@@ -28,11 +28,18 @@ body {
   border-bottom: 2px solid rgb(255, 106, 0);
   position: absolute;
   left: 0;
-  top: 140px;
+  top: 155px;
   width: 100%;
+}
+.just-creature {
+  position: absolute;
+  max-width: 80px;
+  left: 600px;
+  top: 53px;
 }
 .titles {
   margin: 1rem;
+  font-size: 18px;
 }
 #smallLogo {
   max-height: 120px;
@@ -55,6 +62,11 @@ body {
 #saved-page:hover {
   color: rgb(255, 15, 15);
 }
+.navLinks {
+  position: absolute;
+  right: 10%;
+}
+
 .top-container {
   height: 100vh;
   display: flex;
