@@ -1,3 +1,31 @@
+.splash-screen {
+  color: black;
+  z-index: 50;
+
+  min-height: 200vh;
+
+  background: url("outline50opacity.png"),
+    linear-gradient(
+      160deg,
+      rgb(255, 204, 0) 0%,
+      rgb(236, 147, 13) 51%,
+      rgb(187, 108, 5) 100%
+    );
+
+  background-repeat: round;
+  background-size: 100px;
+}
+#question {
+  font-size: 30px;
+  line-height: 80px;
+}
+#phill-before,
+#phill-after,
+#thanks-phill,
+.actual-page {
+  display: none;
+}
+
 body {
   min-height: 200vh;
 

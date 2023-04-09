@@ -58,6 +58,13 @@ body {
 #make-sandwich:hover {
   color: rgb(255, 15, 15);
 }
+
+.the-writing {
+  color: black;
+  font-family: "Alkatra", cursive;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
 .just-creature {
   position: absolute;
   max-width: 80px;
@@ -67,4 +74,9 @@ body {
 .navLinks {
   position: absolute;
   right: 10%;
+}
+#fishing {
+  max-width: 400px;
+  border-radius: 200px;
+  box-shadow: rgba(0, 0, 0, 0.8) 0px 19px 38px;
 }

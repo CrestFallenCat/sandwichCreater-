@@ -17,121 +17,136 @@
   </head>
 
   <body>
-    <nav class="topNav">
-      <div class="titles">
-        <h1>Now you have to make your sandwich</h1>
-        <p>well go on...</p>
-      </div>
-      <img class="just-creature" src="pics/just-him.png" />
-      <div class="navLinks">
-        <a href="about.html" id="about">About Us </a>
+    <div class="splash-screen">
+      <h1 id="question">
+        And what does Phill, the sandwich monster,<br />
+        think of SANDWICH.INC's sandwiches?
+      </h1>
+      <img id="phill-before" src="pics/philbefore.png" />
+      <img id="phill-after" src="pics/philAfter.png" />
+      <h2 id="thanks-phill">Thanks Phill!</h2>
+    </div>
+    <div class="actual-page">
+      <nav class="topNav">
+        <div class="titles">
+          <h1>Now you have to make your sandwich</h1>
+          <p>well go on...</p>
+        </div>
+        <img class="just-creature" src="pics/just-him.png" />
+        <div class="navLinks">
+          <a href="about.html" id="about">About Us </a>
 
-        <a href="save.html" id="saved-page">Saved</a>
-      </div>
-      <a href="home.html "
-        ><img id="smallLogo" src="pics/logo.png" alt="Small logo of company"
-      /></a>
-    </nav>
+          <a href="save.html" id="saved-page">Saved</a>
+        </div>
+        <a href="home.html "
+          ><img id="smallLogo" src="pics/logo.png" alt="Small logo of company"
+        /></a>
+      </nav>
 
-    <div class="top-container">
-      <div class="buttons-container">
-        <p class="ingredients">Ingredients</p>
-        <p id="choose">Choose up to seven</p>
-        <div class="countdown"></div>
+      <div class="top-container">
+        <div class="buttons-container">
+          <p class="ingredients">Ingredients</p>
+          <p id="choose">Choose up to seven</p>
+          <div class="countdown"></div>
 
-        <button class="food-button" id="bun-under-button">Bottom Bun</button>
-        <button class="food-button" id="egg-button">Egg</button>
-        <button class="food-button" id="spoon-button">Spoon</button>
-        <button class="food-button" id="bacon-button">Bacon</button>
-        <button class="food-button" id="pickle-button">Pickle</button>
-        <button class="food-button" id="tomato-button">Tomato</button>
-        <button class="food-button" id="bug-button">Bug</button>
-        <button class="food-button" id="leaf-button">Lettuce</button>
-        <button class="food-button" id="bun-top-button">Top Bun</button>
-      </div>
+          <button class="food-button" id="bun-under-button">Bottom Bun</button>
+          <button class="food-button" id="egg-button">Egg</button>
+          <button class="food-button" id="spoon-button">Spoon</button>
+          <button class="food-button" id="bacon-button">Bacon</button>
+          <button class="food-button" id="pickle-button">Pickle</button>
+          <button class="food-button" id="tomato-button">Tomato</button>
+          <button class="food-button" id="bug-button">Bug</button>
+          <button class="food-button" id="leaf-button">Lettuce</button>
+          <button class="food-button" id="bun-top-button">Top Bun</button>
+        </div>
 
-      <div id="sandwichNameDisplayed"></div>
-      <div id="dialogOverlay" style="visibility: hidden">
-        <h3 id="dialogSentence">What is the name of the sandwich?</h3>
-        <input
-          type="text"
-          id="sandwichName"
-          onkeydown="onEnter(event)"
-          placeholder="Enter Name"
-        />
-        <br />
-        <button onclick="sandwichName()" id="btn">Save</button>
-      </div>
+        <div id="sandwichNameDisplayed"></div>
+        <div id="dialogOverlay" style="visibility: hidden">
+          <h3 id="dialogSentence">What is the name of the sandwich?</h3>
+          <input
+            type="text"
+            id="sandwichName"
+            onkeydown="onEnter(event)"
+            placeholder="Enter Name"
+          />
+          <br />
+          <button onclick="sandwichName()" id="btn">Save</button>
+        </div>
 
-      <div class="container">
-        <img
-          class="slidingImage"
-          id="bun-under"
-          src="pics/bunUnder.PNG"
-          alt="bottom half of bun"
-        />
-        <img
-          class="slidingImage spoon"
-          id="spoon"
-          src="pics/spoon.PNG"
-          alt="a spoon"
-        />
-        <img
-          class="slidingImage egg"
-          id="egg"
-          src="pics/egg.PNG"
-          alt="fried egg"
-        />
-        <img
-          class="slidingImage"
-          id="bacon"
-          src="pics/bacon.PNG"
-          alt="slice of bacon"
-        />
-        <img
-          class="slidingImage pickle"
-          id="pickle"
-          src="pics/pickle.PNG"
-          alt="a whole pickle"
-        />
-        <img
-          class="slidingImage tomato"
-          id="tomato"
-          src="pics/tomate.PNG"
-          alt="a slice of Tomato"
-        />
-        <img
-          class="slidingImage bug"
-          id="bug"
-          src="pics/bug.PNG"
-          alt="an exotic looking bug"
-        />
-        <img
-          class="slidingImage"
-          id="leaf"
-          src="pics/leaf.PNG"
-          alt="lettuce leaf"
-        />
-        <img
-          class="slidingImage"
-          id="bun-top"
-          src="pics/bunTop.PNG"
-          alt="top of the bun"
-        />
-      </div>
-      <div class="right-buttons">
-        <button class="save-reset-undo" id="done" onclick="save()">DONE</button>
-        <button
-          class="save-reset-undo"
-          id="reset"
-          onclick="reset(container); ingredientCountReset()"
-        >
-          RESET
-        </button>
-        <button class="save-reset-undo" id="undo" onclick="undo()">UNDO</button>
-      </div>
+        <div class="container">
+          <img
+            class="slidingImage"
+            id="bun-under"
+            src="pics/bunUnder.PNG"
+            alt="bottom half of bun"
+          />
+          <img
+            class="slidingImage spoon"
+            id="spoon"
+            src="pics/spoon.PNG"
+            alt="a spoon"
+          />
+          <img
+            class="slidingImage egg"
+            id="egg"
+            src="pics/egg.PNG"
+            alt="fried egg"
+          />
+          <img
+            class="slidingImage"
+            id="bacon"
+            src="pics/bacon.PNG"
+            alt="slice of bacon"
+          />
+          <img
+            class="slidingImage pickle"
+            id="pickle"
+            src="pics/pickle.PNG"
+            alt="a whole pickle"
+          />
+          <img
+            class="slidingImage tomato"
+            id="tomato"
+            src="pics/tomate.PNG"
+            alt="a slice of Tomato"
+          />
+          <img
+            class="slidingImage bug"
+            id="bug"
+            src="pics/bug.PNG"
+            alt="an exotic looking bug"
+          />
+          <img
+            class="slidingImage"
+            id="leaf"
+            src="pics/leaf.PNG"
+            alt="lettuce leaf"
+          />
+          <img
+            class="slidingImage"
+            id="bun-top"
+            src="pics/bunTop.PNG"
+            alt="top of the bun"
+          />
+        </div>
+        <div class="right-buttons">
+          <button class="save-reset-undo" id="done" onclick="save()">
+            DONE
+          </button>
+          <button
+            class="save-reset-undo"
+            id="reset"
+            onclick="reset(container); ingredientCountReset()"
+          >
+            RESET
+          </button>
+          <button class="save-reset-undo" id="undo" onclick="undo()">
+            UNDO
+          </button>
+        </div>
 
-      <script src="makeSandwich.js"></script>
+        <script src="makeSandwich.js"></script>
+      </div>
     </div>
   </body>
 </html>
