@@ -19,12 +19,6 @@
   font-size: 30px;
   line-height: 80px;
 }
-#phill-before,
-#phill-after,
-#thanks-phill,
-.actual-page {
-  display: none;
-}
 
 body {
   min-height: 200vh;

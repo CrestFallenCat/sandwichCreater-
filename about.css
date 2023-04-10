@@ -60,10 +60,41 @@ body {
 }
 
 .the-writing {
+  display: grid;
+  grid-template-areas:
+    "header header header header"
+    "content content content content"
+    "menu question question question"
+    "menu left main right";
+
+  gap: 20px;
+  margin: 15px;
+
   color: black;
-  font-family: "Alkatra", cursive;
+  font-family: "Sniglet", cursive;
   font-size: 20px;
   letter-spacing: 1px;
+}
+.header {
+  grid-area: header;
+}
+.content {
+  grid-area: content;
+}
+.menu {
+  grid-area: menu;
+}
+.question {
+  grid-area: question;
+}
+.frens {
+  grid-area: left;
+}
+.cure {
+  grid-area: main;
+}
+.zen {
+  grid-area: right;
 }
 .just-creature {
   position: absolute;
@@ -75,7 +106,7 @@ body {
   position: absolute;
   right: 10%;
 }
-#fishing {
+.phill {
   max-width: 400px;
   border-radius: 200px;
   box-shadow: rgba(0, 0, 0, 0.8) 0px 19px 38px;

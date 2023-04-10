@@ -36,6 +36,47 @@ let imagePositions = [];
 let imageOrder = [];
 let clickCount = {};
 
+// SPLASH SCREEN
+window.addEventListener("load", function () {
+  const splashScreen = document.querySelector(".splash-screen");
+  const question = document.querySelector("#question");
+  const phillBefore = document.querySelector("#phill-before");
+  const phillAfter = document.querySelector("#phill-after");
+  const thanksPhill = document.querySelector("#thanks-phill");
+  const content = document.querySelector(".actual-page");
+
+  const shownSplash = sessionStorage.getItem("shownSplash");
+
+  if (!shownSplash) {
+    setTimeout(function () {
+      question.style.display = "inline-block";
+      phillBefore.style.display = "inline-block";
+      phillAfter.style.display = "none";
+      thanksPhill.style.display = "none";
+    }, 2000);
+
+    setTimeout(() => {
+      question.style.display = "none";
+      phillBefore.style.display = "none";
+      phillAfter.style.display = "inline-block";
+    }, 4000);
+
+    setTimeout(() => {
+      phillAfter.style.display = "none";
+      thanksPhill.style.display = "inline-block";
+    }, 8000);
+
+    setTimeout(() => {
+      splashScreen.style.display = "none";
+      content.style.display = "block";
+    }, 10000);
+    sessionStorage.setItem("shownSplash", "true");
+  } else {
+    splashScreen.style.display = "none";
+    content.style.display = "block";
+  }
+});
+
 let ingredientCount = 0;
 countdown.innerHTML = ingredientCount + "/" + 7;
 

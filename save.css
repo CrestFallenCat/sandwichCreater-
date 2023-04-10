@@ -99,9 +99,7 @@ body {
   background-color: rgba(0, 0, 0, 0.905);
   padding: 10px;
   border-radius: 80px;
-  box-shadow: rgba(0, 0, 0, 0.305) 0px 54px 55px,
-    rgba(0, 0, 0, 0.498) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px,
-    rgba(0, 0, 0, 0.468) 0px 12px 13px, rgba(0, 0, 0, 0.462) 0px -3px 5px;
+  border: solid 5px white;
 }
 
 .sandwich-container img:not(.reset-rating) {
@@ -320,4 +318,8 @@ input {
   100% {
     opacity: 0;
   }
+}
+
+#page-top {
+  position: fixed;
 }
