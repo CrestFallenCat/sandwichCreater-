@@ -1,7 +1,10 @@
+/* * {
+  border: red solid 1px;
+} */
 .splash-screen {
   color: black;
-  z-index: 50;
 
+  font-family: "Noto Serif", serif;
   min-height: 200vh;
 
   background: url("outline50opacity.png"),
@@ -14,12 +17,74 @@
 
   background-repeat: round;
   background-size: 100px;
+  opacity: 0;
+  transition: opacity 2s ease;
 }
-#question {
-  font-size: 30px;
-  line-height: 80px;
+.fade-in {
+  opacity: 1;
 }
 
+@keyframes fadeOut {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+@keyframes fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+
+#question {
+  position: absolute;
+  font-size: 35px;
+  line-height: 60px;
+  left: 650px;
+  top: 50px;
+}
+#phill-before,
+#phill-after {
+  position: absolute;
+  max-width: 700px;
+  left: 650px;
+  top: 200px;
+  z-index: 10;
+}
+
+#phill-after {
+  top: 208px;
+}
+#thanks-phill {
+  position: absolute;
+  left: 750px;
+  top: 350px;
+  font-size: 55px;
+  letter-spacing: 2px;
+  opacity: 0;
+  animation: fadeIn 4s ease;
+}
 body {
   min-height: 200vh;
 

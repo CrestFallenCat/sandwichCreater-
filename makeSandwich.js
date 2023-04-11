@@ -49,28 +49,27 @@ window.addEventListener("load", function () {
 
   if (!shownSplash) {
     setTimeout(function () {
+      splashScreen.classList.add("fade-in");
       question.style.display = "inline-block";
       phillBefore.style.display = "inline-block";
-      phillAfter.style.display = "none";
-      thanksPhill.style.display = "none";
-    }, 2000);
+    }, 1000);
+
+    setTimeout(() => {
+      phillBefore.style.display = "none";
+      phillAfter.style.display = "inline-block";
+    }, 6000);
 
     setTimeout(() => {
       question.style.display = "none";
-      phillBefore.style.display = "none";
-      phillAfter.style.display = "inline-block";
-    }, 4000);
-
-    setTimeout(() => {
       phillAfter.style.display = "none";
       thanksPhill.style.display = "inline-block";
-    }, 8000);
+    }, 10000);
 
     setTimeout(() => {
       splashScreen.style.display = "none";
       content.style.display = "block";
-    }, 10000);
-    sessionStorage.setItem("shownSplash", "true");
+    }, 14000);
+    // sessionStorage.setItem("shownSplash", "true");
   } else {
     splashScreen.style.display = "none";
     content.style.display = "block";
