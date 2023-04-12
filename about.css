@@ -62,7 +62,6 @@ body {
 .the-writing {
   display: grid;
   grid-template-areas:
-    "header header header header"
     "content content content content"
     "menu question question question"
     "menu left main right";
@@ -75,12 +74,11 @@ body {
   font-size: 20px;
   letter-spacing: 1px;
 }
-.header {
-  grid-area: header;
-}
+
 .content {
   grid-area: content;
 }
+
 .menu {
   grid-area: menu;
 }
@@ -95,6 +93,39 @@ body {
 }
 .zen {
   grid-area: right;
+}
+
+.background {
+  background-color: rgba(245, 222, 179, 0.724);
+  padding: 20px;
+  border-radius: 70px;
+}
+
+#about-paragraph {
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+
+  top: 150px;
+  width: 1000px;
+  z-index: 1;
+}
+#about-title {
+  /* position: relative; */
+  text-align: center;
+  top: 40px;
+
+  z-index: 1;
+}
+#mountains {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  height: 700px;
+  width: 1700px;
+  opacity: 0.4;
+  backdrop-filter: blur(20px);
+  border-radius: 70px;
 }
 .just-creature {
   position: absolute;

@@ -1,6 +1,3 @@
-/* * {
-  border: red solid 1px;
-} */
 .splash-screen {
   color: black;
 
@@ -24,19 +21,16 @@
   opacity: 1;
 }
 
-@keyframes fadeOut {
-  0% {
-    opacity: 1;
-  }
-  50% {
+@keyframes fade-in {
+  from {
     opacity: 0;
   }
-  100% {
+  to {
     opacity: 1;
   }
 }
 
-@keyframes fadeIn {
+@keyframes fadeInOut {
   0% {
     opacity: 0;
   }
@@ -83,8 +77,11 @@
   font-size: 55px;
   letter-spacing: 2px;
   opacity: 0;
-  animation: fadeIn 4s ease;
+  animation: fadeInOut 4s ease;
 }
+/* .actual-page {
+  display: block;
+} */
 body {
   min-height: 200vh;
 

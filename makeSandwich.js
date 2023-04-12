@@ -60,16 +60,18 @@ window.addEventListener("load", function () {
     }, 6000);
 
     setTimeout(() => {
-      question.style.display = "none";
-      phillAfter.style.display = "none";
+      question.style.animation = "fade-out 1s ease forwards";
+      // question.style.display = "none";
+      phillAfter.style.animation = "fade-out 1s ease forwards";
       thanksPhill.style.display = "inline-block";
-    }, 10000);
+    }, 9000);
 
     setTimeout(() => {
       splashScreen.style.display = "none";
       content.style.display = "block";
-    }, 14000);
-    // sessionStorage.setItem("shownSplash", "true");
+      content.style.animation = "fade-in 2s ease forwards";
+    }, 13000);
+    sessionStorage.setItem("shownSplash", "true");
   } else {
     splashScreen.style.display = "none";
     content.style.display = "block";
