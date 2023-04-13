@@ -68,7 +68,6 @@ body {
     " left left main right";
 
   gap: 20px;
-  margin: 15px;
 
   color: black;
   font-family: "Sniglet", cursive;
@@ -83,8 +82,8 @@ body {
 .quote {
   grid-area: quote;
   text-align: center;
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin-top: 20px;
+
   color: white;
   background-color: rgba(229, 74, 2, 0.918);
 }
@@ -96,18 +95,39 @@ body {
 }
 .question {
   grid-area: question;
+  font-size: 30px;
 }
 .frens {
   grid-area: left;
 }
+.frens p {
+  width: 400px;
+}
 .cure {
   grid-area: main;
 }
-.zen {
+.cure p {
+  width: 400px;
+}
+.whole {
   grid-area: right;
 }
+.whole P {
+  width: 400px;
+}
 
+.frens,
+.cure,
+.whole {
+  margin: 10px 75px;
+
+  border-radius: 70px;
+  background-color: rgba(43, 9, 73, 0.174);
+  backdrop-filter: blur(80px);
+}
 .background {
+  position: absolute;
+  bottom: 220px;
   background-color: rgba(247, 207, 133, 0.849);
   padding: 20px;
   border-radius: 70px;
@@ -125,17 +145,18 @@ body {
 #about-title {
   text-align: center;
   top: 40px;
-
+  font-size: 35px;
   z-index: 1;
 }
 #mountains {
+  margin: 40px 0px 0px;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  height: 700px;
+  height: 600px;
   width: 1700px;
   opacity: 0.4;
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(70px);
   border-radius: 70px;
 }
 .just-creature {
@@ -160,10 +181,19 @@ body {
 }
 
 .points img {
-  width: 300px;
+  width: 325px;
 }
-
+.points h3 {
+  font-size: 30px;
+  color: rgb(255, 255, 255);
+  font-family: "Indie Flower", cursive;
+  letter-spacing: 2px;
+}
+.points p {
+  margin: 40px 10px;
+}
 .points {
+  position: relative;
   display: inline-flex;
-  margin-left: 100px;
+  left: 100px;
 }
