@@ -4,13 +4,13 @@ body {
   background: url("outline50opacity.png"),
     linear-gradient(
       160deg,
-      rgb(255, 204, 0) 0%,
+      rgb(255, 179, 0) 0%,
       rgb(236, 147, 13) 51%,
       rgb(187, 108, 5) 100%
     );
 
   background-repeat: round;
-  background-size: 400px;
+  background-size: 100px;
   font-family: "Finger Paint", cursive;
 
   color: white;
@@ -96,7 +96,7 @@ body {
   height: 850px;
   width: 350px;
 
-  background-color: rgba(255, 36, 2, 0.189);
+  background-color: rgba(219, 31, 3, 0.421);
   padding: 10px;
   border-radius: 80px;
   border: double 5px rgb(0, 0, 0);
@@ -238,13 +238,15 @@ body {
   color: rgb(83, 4, 4);
   background-color: rgba(255, 81, 0, 0.738);
   font-family: "Alkatra", cursive;
-  border: solid 3px black;
+  border: solid 2px black;
   max-width: 200px;
   border-radius: 5px;
   font-size: 15px;
   margin-top: 2px;
 }
-
+#sort-options:hover {
+  cursor: pointer;
+}
 .name,
 .address {
   color: white;
@@ -276,6 +278,7 @@ body {
 }
 
 .submit:hover {
+  cursor: pointer;
   background-color: white;
   color: orangered;
 }
@@ -299,8 +302,7 @@ input {
   z-index: 999;
   top: 80px;
   left: calc(50% - 150px);
-  animation: slideDown 2s ease-out;
-  animation-fill-mode: forwards;
+  animation: slideDown 3s ease-out;
 }
 
 @keyframes slideDown {
@@ -329,7 +331,7 @@ input {
   padding: 5px;
   text-decoration: none;
   margin-left: 10px;
-  font-size: 15px;
+  font-size: 12px;
   border: 2px solid rgb(0, 0, 0);
   border-radius: 50px;
 }
