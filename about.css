@@ -81,7 +81,6 @@ body {
 }
 
 .quote {
-  position: flex;
   grid-area: quote;
   text-align: center;
   margin-top: 20px;
@@ -96,24 +95,26 @@ body {
   font-size: 25px;
 }
 .question {
-  position: flex;
   grid-area: question;
   font-size: 30px;
 }
 .frens {
   grid-area: left;
+  padding: 20px;
 }
 .frens p {
   max-width: 400px;
 }
 .cure {
   grid-area: main;
+  padding: 20px;
 }
 .cure p {
   max-width: 400px;
 }
 .whole {
   grid-area: right;
+  padding: 20px;
 }
 .whole P {
   max-width: 400px;
@@ -136,14 +137,12 @@ body {
 }
 
 #about-paragraph {
-  position: flex;
-
   margin-left: auto;
   margin-right: auto;
   height: 40vh;
   width: 50%;
   top: 1500px;
-  /* max-width: 1000px; */
+  transform: translateY(110px);
   z-index: 1;
 }
 #about-title {
@@ -153,13 +152,12 @@ body {
   z-index: 1;
 }
 #mountains {
-  position: flex;
   margin: 40px 0px 0px;
-  /* display: block; */
+
   margin-left: auto;
   margin-right: auto;
-  height: 55vh;
-  width: 80%;
+  height: 65vh;
+  width: 85%;
   opacity: 0.4;
   backdrop-filter: blur(70px);
   border-radius: 70px;
@@ -198,12 +196,20 @@ body {
   margin: 40px 10px;
 }
 .points {
-  position: flex;
+  transform: translate(148px);
+
   display: inline-flex;
 }
 
-@media only screen and (max-width: 1500px) {
+@media only screen and (max-width: 1300px) {
   .points {
     display: inline-block;
+  }
+}
+
+@media only screen and (max-width: 900px) {
+  h1,
+  .just-creature {
+    display: none;
   }
 }
