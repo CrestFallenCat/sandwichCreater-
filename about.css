@@ -1,5 +1,5 @@
 body {
-  min-height: 200vh;
+  min-height: 230vh;
 
   background: url("outline50opacity.png"),
     linear-gradient(
@@ -28,6 +28,7 @@ body {
 }
 
 .topNav::before {
+  flex: 1;
   content: "";
   border-bottom: 2px solid rgb(255, 106, 0);
   position: absolute;
@@ -80,10 +81,11 @@ body {
 }
 
 .quote {
+  position: flex;
   grid-area: quote;
   text-align: center;
   margin-top: 20px;
-
+  width: 100%;
   color: white;
   background-color: rgba(229, 74, 2, 0.918);
 }
@@ -94,6 +96,7 @@ body {
   font-size: 25px;
 }
 .question {
+  position: flex;
   grid-area: question;
   font-size: 30px;
 }
@@ -101,19 +104,19 @@ body {
   grid-area: left;
 }
 .frens p {
-  width: 400px;
+  max-width: 400px;
 }
 .cure {
   grid-area: main;
 }
 .cure p {
-  width: 400px;
+  max-width: 400px;
 }
 .whole {
   grid-area: right;
 }
 .whole P {
-  width: 400px;
+  max-width: 400px;
 }
 
 .frens,
@@ -126,7 +129,6 @@ body {
   backdrop-filter: blur(80px);
 }
 .background {
-  position: absolute;
   bottom: 220px;
   background-color: rgba(247, 207, 133, 0.849);
   padding: 20px;
@@ -134,12 +136,14 @@ body {
 }
 
 #about-paragraph {
-  position: relative;
+  position: flex;
+
   margin-left: auto;
   margin-right: auto;
-
-  top: 150px;
-  width: 1000px;
+  height: 40vh;
+  width: 50%;
+  top: 1500px;
+  /* max-width: 1000px; */
   z-index: 1;
 }
 #about-title {
@@ -149,12 +153,13 @@ body {
   z-index: 1;
 }
 #mountains {
+  position: flex;
   margin: 40px 0px 0px;
-  display: block;
+  /* display: block; */
   margin-left: auto;
   margin-right: auto;
-  height: 600px;
-  width: 1700px;
+  height: 55vh;
+  width: 80%;
   opacity: 0.4;
   backdrop-filter: blur(70px);
   border-radius: 70px;
@@ -181,7 +186,7 @@ body {
 }
 
 .points img {
-  width: 325px;
+  max-width: 325px;
 }
 .points h3 {
   font-size: 30px;
@@ -193,7 +198,12 @@ body {
   margin: 40px 10px;
 }
 .points {
-  position: relative;
+  position: flex;
   display: inline-flex;
-  left: 100px;
+}
+
+@media only screen and (max-width: 1500px) {
+  .points {
+    display: inline-block;
+  }
 }
