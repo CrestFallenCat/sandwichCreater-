@@ -140,8 +140,8 @@ body {
   margin-left: auto;
   margin-right: auto;
   height: 40vh;
-  width: 50%;
-  top: 1500px;
+  max-width: 80rem;
+
   transform: translateY(110px);
   z-index: 1;
 }
@@ -196,7 +196,7 @@ body {
   margin: 40px 10px;
 }
 .points {
-  transform: translate(148px);
+  transform: translate(10px);
 
   display: inline-flex;
 }
@@ -204,6 +204,10 @@ body {
 @media only screen and (max-width: 1300px) {
   .points {
     display: inline-block;
+  }
+  #about-paragraph {
+    font-size: 15px;
+    max-width: 500px;
   }
 }
 
